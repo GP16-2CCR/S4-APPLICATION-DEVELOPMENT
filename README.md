@@ -59,7 +59,7 @@ A aplicação utiliza um gradiente moderno que transita entre o verde (`#2D7A4F`
 
 - [Sprint 1](https://youtu.be/Q7S4VpIxsL4?si=cDQ2cWipR30H4jhZhttps://youtu.be/Q7S4VpIxsL4?si=cDQ2cWipR30H4jhZ)
 - [Sprint 3](https://youtu.be/3Au7IkAksx8)
-- [Sprint 4]()
+- [Sprint 4](https://youtu.be/WxHKEHFsWtA)
 
 ## Informações do Projeto
 
