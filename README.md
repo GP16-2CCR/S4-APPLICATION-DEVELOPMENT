@@ -55,7 +55,21 @@ A aplicação utiliza um gradiente moderno que transita entre o verde (`#2D7A4F`
 
 ---
 
+## Vídeos do Projeto
+
+- [Sprint 1](https://youtu.be/Q7S4VpIxsL4?si=cDQ2cWipR30H4jhZhttps://youtu.be/Q7S4VpIxsL4?si=cDQ2cWipR30H4jhZ)
+- [Sprint 3](https://youtu.be/3Au7IkAksx8)
+- [Sprint 4]()
+
 ## Informações do Projeto
 
 - **Grupo:** GP16 (Motiva)
 - **Instituição:** FIAP - 2026
+
+## Integrantes
+
+- **Nome:** Caio Cordeiro Salgado | RM565400
+- **Nome:** Hector van Tol Taver | RM562881
+- **Nome:** Juan Gigliotti da Cunha | RM563253
+- **Nome:** Rafael Alves da Silva | RM561878
+- **Nome:** Raissa Fabricio Lima | RM563772

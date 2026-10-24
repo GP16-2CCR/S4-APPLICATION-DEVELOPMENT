@@ -1,102 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
     <title>GrassIA - Gestão de Áreas Verdes</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <div class="inicio">
-        <h1>Grass IA</h1>
-        <h2>Bem-vindo ao GrassIA</h2>
-        <p>O GrassIA é uma aplicação inovadora para a gestão eficiente de áreas verdes,
-        <br/>utilizando inteligência artificial para otimizar o cuidado e manutenção dos espaços verdes urbanos.</p>
+      <h1>Grass IA</h1>
+      <h2>Bem-vindo ao GrassIA</h2>
+      <p>
+        O GrassIA é uma aplicação inovadora para a gestão eficiente de áreas
+        verdes, <br />utilizando inteligência artificial para otimizar o cuidado
+        e manutenção dos espaços verdes urbanos.
+      </p>
     </div>
     <div class="Cadastros">
-        <h1>Cadastro Usuário</h1>
-        <form id="cadastroUsuario">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" placeholder="Ex: João Silva" required>
+      <h1>Cadastro Usuário</h1>
+      <form id="cadastroUsuario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Ex: João Silva" required />
 
-            <label for="veiculo">Cargo:</label>
-            <select>
-                <option value="Roçador">Roçador</option>
-                <option value="Inspetor">Inspetor</option>
-                <option value="Gestor">Gestor</option>
-            </select>
+        <label for="veiculo">Cargo:</label>
+        <select>
+          <option value="Roçador">Roçador</option>
+          <option value="Inspetor">Inspetor</option>
+          <option value="Gestor">Gestor</option>
+        </select>
 
-            <label for="idade">Idade:</label>
-            <input type="text" id="idade" placeholder="Ex: 30" required>
+        <label for="idade">Idade:</label>
+        <input type="text" id="idade" placeholder="Ex: 30" required />
 
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" placeholder="Ex: 123.456.789-00" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" placeholder="Ex: 123.456.789-00" required />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Ex: joao.silva@email.com" required>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Ex: joao.silva@email.com"
+          required
+        />
 
-            <label for="senha">senha:</label>
-            <input type="password" id="senha" placeholder="Ex: ********" required>
+        <label for="senha">senha:</label>
+        <input type="password" id="senha" placeholder="Ex: ********" required />
 
-            <button type="submit">Registar Usuário</button>
-        </form>
+        <button type="submit">Registar Usuário</button>
+      </form>
 
-        <form id="cadastroVeiculo">
+      <form id="cadastroVeiculo">
+        <h1>Cadastro Veículo</h1>
+        <label for="nome">Nome do condutor:</label>
+        <input type="text" id="nome" placeholder="Ex: João Silva" required />
 
-            <h1>Cadastro Veículo</h1>
-            <label for="nome">Nome do condutor:</label>
-            <input type="text" id="nome" placeholder="Ex: João Silva" required>
+        <label for="marca">Marca do veiculo:</label>
+        <input type="text" id="marca" placeholder="Ex: Ford" required />
 
-            <label for="marca">Marca do veiculo:</label>
-            <input type="text" id="marca" placeholder="Ex: Ford" required>
+        <label for="placa">Placa do Veículo:</label>
+        <input type="text" id="placa" placeholder="ABC-1234" required />
 
-            <label for="placa">Placa do Veículo:</label>
-            <input type="text" id="placa" placeholder="ABC-1234" required>
-
-            <button type="submit">Registar Veículo</button>
-        </form>
-        <img src="./assets/logoIA.png" alt="logo">
-
+        <button type="submit">Registar Veículo</button>
+      </form>
+      <img src="./assets/logoIA.png" alt="logo" />
     </div>
 
     <div class="Monitoramento">
-        <h1>Monitoramento de Vegetação nas Rodovias</h1>
-        <p>Classificação automática por faixa de altura, com indicação da ação recomendada para cada ponto monitorado.</p>
+      <h1>Monitoramento de Vegetação nas Rodovias</h1>
+      <p>
+        Classificação automática por faixa de altura, com indicação da ação
+        recomendada para cada ponto monitorado.
+      </p>
 
-        <div id="resumoMonitoramento" class="resumoMonitoramento">
-            <!-- Cards de resumo gerados dinamicamente via JS -->
-        </div>
+      <div id="resumoMonitoramento" class="resumoMonitoramento">
+        <!-- Cards de resumo gerados dinamicamente via JS -->
+      </div>
 
-        <h2>Registrar novo ponto monitorado</h2>
-        <form id="formMonitoramento">
-            <label for="localizacaoPonto">Localização:</label>
-            <input type="text" id="localizacaoPonto" placeholder="Ex: Km 32 - Rodovia BR-101" required>
+      <h2>Registrar novo ponto monitorado</h2>
+      <form id="formMonitoramento">
+        <label for="localizacaoPonto">Localização:</label>
+        <input
+          type="text"
+          id="localizacaoPonto"
+          placeholder="Ex: Km 32 - Rodovia BR-101"
+          required
+        />
 
-            <label for="alturaPonto">Altura da vegetação (cm):</label>
-            <input type="number" id="alturaPonto" placeholder="Ex: 45" min="0" required>
+        <label for="alturaPonto">Altura da vegetação (cm):</label>
+        <input
+          type="number"
+          id="alturaPonto"
+          placeholder="Ex: 45"
+          min="0"
+          required
+        />
 
-            <button type="submit">Adicionar Ponto</button>
-        </form>
+        <button type="submit">Adicionar Ponto</button>
+      </form>
 
-        <h2>Painel de Pontos Monitorados</h2>
-        <table class="tabelaMonitoramento">
-            <thead>
-                <tr>
-                    <th>Localização</th>
-                    <th>Altura da vegetação</th>
-                    <th>Classificação</th>
-                    <th>Ação recomendada</th>
-                </tr>
-            </thead>
-            <tbody id="corpoTabelaMonitoramento">
-                <!-- Linhas geradas dinamicamente via JS -->
-            </tbody>
-        </table>
+      <h2>Painel de Pontos Monitorados</h2>
+      <section>
+        <h2>Regras de classificação</h2>
+        <div id="legendaRegras"></div>
+      </section>
+      <table class="tabelaMonitoramento">
+        <thead>
+          <tr>
+            <th>Prioridade</th>
+            <th>Localização</th>
+            <th>Altura da vegetação</th>
+            <th>Classificação</th>
+            <th>Ação recomendada</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabelaMonitoramento">
+          <!-- Linhas geradas dinamicamente via JS -->
+        </tbody>
+      </table>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,32 +1,45 @@
-// Array de objetos com as faixas de altura, classificação e ação recomendada
+// ===== Regras de classificação =====
+// Faixas contínuas: min é inclusivo e max é exclusivo (não há lacunas entre faixas)
 const faixasClassificacao = [
   {
+    nivel: 1,
     min: 0,
-    max: 10,
-    classe: "Normal",
-    cssClass: "normal",
-    acao: "Nenhuma ação necessária.",
+    max: 11,
+    faixaTexto: "De 0 a menos de 11 cm",
+    classe: "Monitorado",
+    cssClass: "monitorado",
+    acao: "Manter monitoramento de rotina.",
+    destaque: false,
   },
   {
+    nivel: 2,
     min: 11,
-    max: 20,
+    max: 21,
+    faixaTexto: "De 11 a menos de 21 cm",
     classe: "Atenção",
     cssClass: "atencao",
     acao: "Agendar inspeção nos próximos 10 dias.",
+    destaque: false,
   },
   {
+    nivel: 3,
     min: 21,
-    max: 29,
-    classe: "Risco",
-    cssClass: "risco",
+    max: 30,
+    faixaTexto: "De 21 a menos de 30 cm",
+    classe: "Intervenção Programada",
+    cssClass: "programada",
     acao: "Programar roçagem/corte no prazo máximo de 7 dias.",
+    destaque: false,
   },
   {
+    nivel: 4,
     min: 30,
     max: Infinity,
-    classe: "Crítico",
-    cssClass: "critico",
+    faixaTexto: "30 cm ou mais",
+    classe: "Intervenção Prioritária",
+    cssClass: "prioritaria",
     acao: "Intervenção imediata: risco à visibilidade e segurança na via.",
+    destaque: true,
   },
 ];
 
@@ -40,43 +53,79 @@ const pontosMonitorados = [
   { localizacao: "Km 90 - Ponte Rio Verde", altura: 35 },
 ];
 
-// Função para classificar a vegetação
-function classificarVegetacao(altura) {
-  for (let i = 0; i < faixasClassificacao.length; i++) {
-    const faixa = faixasClassificacao[i];
-    if (altura >= faixa.min && altura <= faixa.max) {
-      return faixa;
-    }
-  }
+// ===== Funções de processamento =====
 
-  return {
-    classe: "Não classificado",
-    cssClass: "desconhecido",
-    acao: "Verificar dado de altura informado.",
-  };
+// Retorna a faixa correspondente à altura informada
+function classificarVegetacao(altura) {
+  const faixa = faixasClassificacao.find(function (f) {
+    return altura >= f.min && altura < f.max;
+  });
+
+  return (
+    faixa || {
+      nivel: 0,
+      classe: "Não classificado",
+      cssClass: "desconhecido",
+      acao: "Verificar dado de altura informado.",
+      destaque: false,
+    }
+  );
 }
 
-
-// Função para criar o Dashboard
-function renderizarDashboard() {
-  const tabela = document.getElementById("corpoTabelaMonitoramento");
-
-  // Limpa o conteúdo atual antes de reconstruir (atualização dinâmica)
-  tabela.innerHTML = "";
-
-  pontosMonitorados.forEach(function (ponto) {
+// Aplica a classificação a todos os pontos (usa map)
+function analisarPontos(lista) {
+  return lista.map(function (ponto) {
     const resultado = classificarVegetacao(ponto.altura);
 
-    // Cria a linha da tabela dinamicamente
+    return {
+      localizacao: ponto.localizacao,
+      altura: ponto.altura,
+      nivel: resultado.nivel,
+      classe: resultado.classe,
+      cssClass: resultado.cssClass,
+      acao: resultado.acao,
+      destaque: resultado.destaque,
+    };
+  });
+}
+
+// Ordena do maior para o menor nível de prioridade; em empate, da maior altura para a menor
+function ordenarPorPrioridade(pontos) {
+  return [...pontos].sort(function (a, b) {
+    return b.nivel - a.nivel || b.altura - a.altura;
+  });
+}
+
+// Evita injeção de HTML a partir de texto digitado pelo usuário
+function escaparHtml(texto) {
+  const div = document.createElement("div");
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
+// ===== Renderização =====
+
+// Monta a tabela do painel, já ordenada por prioridade
+function renderizarDashboard() {
+  const tabela = document.getElementById("corpoTabelaMonitoramento");
+  tabela.innerHTML = "";
+
+  const pontos = ordenarPorPrioridade(analisarPontos(pontosMonitorados));
+
+  pontos.forEach(function (ponto, indice) {
     const linha = document.createElement("tr");
-    linha.classList.add(resultado.cssClass);
+    linha.classList.add(ponto.cssClass);
+    if (ponto.destaque) {
+      linha.classList.add("destaque");
+    }
 
     linha.innerHTML = `
-            <td>${ponto.localizacao}</td>
-            <td>${ponto.altura} cm</td>
-            <td><span class="badge ${resultado.cssClass}">${resultado.classe}</span></td>
-            <td>${resultado.acao}</td>
-        `;
+      <td>${indice + 1}º</td>
+      <td>${escaparHtml(ponto.localizacao)}</td>
+      <td>${ponto.altura} cm</td>
+      <td><span class="badge ${ponto.cssClass}">${ponto.classe}</span></td>
+      <td>${ponto.acao}</td>
+    `;
 
     tabela.appendChild(linha);
   });
@@ -84,59 +133,70 @@ function renderizarDashboard() {
   atualizarResumo();
 }
 
-// Função para gerar uma contagem por nível de risco e exibir no topo do dashboard.
+// Exibe a contagem por nível no topo do painel
 function atualizarResumo() {
   const resumo = document.getElementById("resumoMonitoramento");
   resumo.innerHTML = "";
 
-  // Conta quantos pontos existem em cada classificação
-  const contagem = {};
-  faixasClassificacao.forEach(function (faixa) {
-    contagem[faixa.classe] = 0;
-  });
-
-  pontosMonitorados.forEach(function (ponto) {
-    const resultado = classificarVegetacao(ponto.altura);
-    contagem[resultado.classe] = (contagem[resultado.classe] || 0) + 1;
-  });
+  const pontos = analisarPontos(pontosMonitorados);
 
   faixasClassificacao.forEach(function (faixa) {
+    const total = pontos.filter(function (p) {
+      return p.classe === faixa.classe;
+    }).length;
+
     const card = document.createElement("div");
     card.classList.add("cardResumo", faixa.cssClass);
     card.innerHTML = `
-            <h3>${contagem[faixa.classe] || 0}</h3>
-            <p>${faixa.classe}</p>
-        `;
+      <h3>${total}</h3>
+      <p>${faixa.classe}</p>
+    `;
     resumo.appendChild(card);
   });
 }
 
-// Função para cadastrar um novo ponto de monitoramento via formulário
+// Exibe a legenda com as regras de classificação
+function renderizarLegenda() {
+  const legenda = document.getElementById("legendaRegras");
+  if (!legenda) return;
+
+  legenda.innerHTML =
+    "<ul>" +
+    faixasClassificacao
+      .map(function (f) {
+        return `<li><span class="badge ${f.cssClass}">${f.classe}</span> ${f.faixaTexto}: ${f.acao}</li>`;
+      })
+      .join("") +
+    "</ul>";
+}
+
+// ===== Cadastro de novo ponto =====
 function cadastrarPontoMonitorado(event) {
   event.preventDefault();
 
   const localizacaoInput = document.getElementById("localizacaoPonto");
   const alturaInput = document.getElementById("alturaPonto");
 
-  const novoPonto = {
-    localizacao: localizacaoInput.value.trim(),
-    altura: parseFloat(alturaInput.value),
-  };
+  const localizacao = localizacaoInput.value.trim();
+  const altura = parseFloat(alturaInput.value);
 
-  if (!novoPonto.localizacao || isNaN(novoPonto.altura)) {
-    alert("Por favor, preencha a localização e a altura corretamente.");
+  if (!localizacao || isNaN(altura) || altura < 0) {
+    alert(
+      "Por favor, preencha a localização e uma altura válida (número igual ou maior que zero).",
+    );
     return;
   }
 
-  pontosMonitorados.push(novoPonto);
+  pontosMonitorados.push({ localizacao: localizacao, altura: altura });
   renderizarDashboard();
 
   localizacaoInput.value = "";
   alturaInput.value = "";
 }
 
-// Inicializa o dashboard quando a página carrega
+// ===== Inicialização =====
 document.addEventListener("DOMContentLoaded", function () {
+  renderizarLegenda();
   renderizarDashboard();
 
   const formMonitoramento = document.getElementById("formMonitoramento");

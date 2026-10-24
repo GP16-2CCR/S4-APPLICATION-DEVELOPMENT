@@ -1,242 +1,275 @@
 /* STYLES SPRINT 2 */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.inicio{
-    background: linear-gradient(135deg, #2D7A4F 0%, #6b2fa0 100%);
-    padding: 100px;
-    align-items: center;
-    font-size: 60px;
-    text-align: center;
-    color: white;
-    font-family: "Sora", sans-serif;
-
+.inicio {
+  background: linear-gradient(135deg, #2d7a4f 0%, #6b2fa0 100%);
+  padding: 6.25rem;
+  align-items: center;
+  font-size: 3.75rem;
+  text-align: center;
+  color: white;
+  font-family: "Sora", sans-serif;
 }
 
-.inicio h1{
-    padding: 5px;
-    font-size: 60px;
+.inicio h1 {
+  padding: 0.3125rem;
+  font-size: 3.75rem;
 }
 
-.inicio h2{
-    padding: 5px;
-    font-size: 20px;
+.inicio h2 {
+  padding: 0.3125rem;
+  font-size: 1.25rem;
 }
 
-.inicio p{
-    padding: 5px;
-    font-size: 20px;
+.inicio p {
+  padding: 0.3125rem;
+  font-size: 1.25rem;
 }
 
-.Cadastros{
-    background: linear-gradient(135deg, #2D7A4F 0%, #6b2fa0 100%);
-    padding: 100px;
-    padding: 50px;
-    align-items: center;
-    text-align: center;
-    color: white;
-    font-family: "Sora", sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    border-radius: 10px;
+.Cadastros {
+  background: linear-gradient(135deg, #2d7a4f 0%, #6b2fa0 100%);
+  padding: 6.25rem;
+  padding: 3.125rem;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: "Sora", sans-serif;
+  max-width: 37.5rem;
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
 }
 
-.Cadastros h1{
-    padding: 5px;
-    font-size: 25px;
+.Cadastros h1 {
+  padding: 0.3125rem;
+  font-size: 1.5625rem;
 }
 
-.Cadastros #cadastroUsuario ,#cadastroVeiculo{
-    padding: 5px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
+.Cadastros #cadastroUsuario,
+#cadastroVeiculo {
+  padding: 0.3125rem;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.Cadastros #cadastroUsuario label ,#cadastroVeiculo label{
-    margin-bottom: 5px;
-    font-weight: bold;
+.Cadastros #cadastroUsuario label,
+#cadastroVeiculo label {
+  margin-bottom: 0.3125rem;
+  font-weight: bold;
 }
 
 .Cadastros #cadastroUsuario input,
 .Cadastros #cadastroUsuario select,
 .Cadastros #cadastroVeiculo input,
 .Cadastros #cadastroVeiculo select {
-
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.9375rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.Cadastros #cadastroVeiculo{
-    margin-top: 20px;
+.Cadastros #cadastroVeiculo {
+  margin-top: 1.25rem;
 }
 
 button {
-    padding: 12px;
-    background-color: #2D7A4F;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  padding: 0.75rem;
+  background-color: #2d7a4f;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #1e442e;
+  background-color: #1e442e;
 }
 
-img{
-    margin: 10px;
-    background: white;
-    border-radius: 100px;
-    max-width: 300px;
+img {
+  margin: 0.625rem;
+  background: white;
+  border-radius: 6.25rem;
+  max-width: 18.75rem;
 }
 
 /* STYLES SPRINT 3 */
-.Monitoramento{
-    background: #f4f7f5;
-    padding: 40px;
-    max-width: 900px;
-    margin: 40px auto;
-    border-radius: 10px;
-    font-family: "Sora", sans-serif;
-    color: #1e2a24;
+.Monitoramento {
+  background: #f4f7f5;
+  padding: 2.5rem;
+  max-width: 56.25rem;
+  margin: 2.5rem auto;
+  border-radius: 0.625rem;
+  font-family: "Sora", sans-serif;
+  color: #1e2a24;
 }
 
-.Monitoramento h1{
-    color: #2D7A4F;
-    margin-bottom: 10px;
+.Monitoramento h1 {
+  color: #2d7a4f;
+  margin-bottom: 0.625rem;
 }
 
-.Monitoramento h2{
-    margin-top: 30px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #2D7A4F;
+.Monitoramento h2 {
+  margin-top: 1.875rem;
+  margin-bottom: 0.625rem;
+  font-size: 1.25rem;
+  color: #2d7a4f;
 }
 
-.Monitoramento form{
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
+.Monitoramento form {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
 }
 
-.Monitoramento label{
-    margin-bottom: 5px;
-    font-weight: bold;
+.Monitoramento label {
+  margin-bottom: 0.3125rem;
+  font-weight: bold;
 }
 
-.Monitoramento input{
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.Monitoramento input {
+  padding: 0.625rem;
+  margin-bottom: 0.9375rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
 }
 
 /* Cards de resumo por nível de risco */
-.resumoMonitoramento{
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
+.resumoMonitoramento {
+  display: flex;
+  gap: 0.9375rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.625rem;
 }
 
-.cardResumo{
-    flex: 1;
-    min-width: 120px;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    color: white;
+.cardResumo {
+  flex: 1;
+  min-width: 7.5rem;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: white;
 }
 
-.cardResumo h3{
-    font-size: 28px;
+.cardResumo h3 {
+  font-size: 1.75rem;
 }
 
-.cardResumo p{
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
+.cardResumo p {
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* Tabela de pontos monitorados */
-.tabelaMonitoramento{
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+.tabelaMonitoramento {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 0.25rem rgba(0, 0, 0, 0.1);
 }
 
-.tabelaMonitoramento th, .tabelaMonitoramento td{
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.tabelaMonitoramento th,
+.tabelaMonitoramento td {
+  padding: 0.75rem 0.9375rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
-.tabelaMonitoramento th{
-    background: #2D7A4F;
-    color: white;
+.tabelaMonitoramento th {
+  background: #2d7a4f;
+  color: white;
+}
+
+.tabelaMonitoramento td {
+  vertical-align: middle;
 }
 
 /* Badge de classificação dentro da tabela */
-.badge{
-    padding: 5px 10px;
-    border-radius: 20px;
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
+.badge {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.3;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.8125rem;
+  vertical-align: middle;
 }
 
-/* Cores por nível de risco - usadas em linhas, cards e badges */
-.normal{
-    background-color: #2D7A4F; /* verde - seguro */
+#legendaRegras ul {
+  list-style: none;
+  padding: 0;
 }
 
-.atencao{
-    background-color: #E0A800; /* amarelo/laranja - próximo do limite */
+#legendaRegras li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+  line-height: 1.5;
 }
 
-.risco{
-    background-color: #E85D04; /* laranja forte - necessita intervenção programada */
+/* Cores por nível de intervenção - usadas em linhas, cards e badges */
+.monitorado {
+  background-color: #2d7a4f; /* verde - sem ação imediata */
 }
 
-.critico{
-    background-color: #C1121F; /* vermelho - intervenção imediata */
+.atencao {
+  background-color: #e0a800; /* amarelo - inspeção em 10 dias */
 }
 
-.desconhecido{
-    background-color: #6c757d; /* cinza - dado inconsistente */
+.programada {
+  background-color: #e85d04; /* laranja - roçagem em até 7 dias */
 }
 
-/* Realce sutil na linha da tabela conforme o risco (fundo claro) */
-tr.normal{
-    background-color: rgba(45, 122, 79, 0.08);
+.prioritaria {
+  background-color: #c1121f; /* vermelho - intervenção imediata */
 }
 
-tr.atencao{
-    background-color: rgba(224, 168, 0, 0.12);
+.desconhecido {
+  background-color: #6c757d; /* cinza - dado inconsistente */
 }
 
-tr.risco{
-    background-color: rgba(232, 93, 4, 0.12);
+/* Realce sutil no fundo da linha conforme o nível */
+tr.monitorado {
+  background-color: rgba(45, 122, 79, 0.08);
 }
 
-tr.critico{
-    background-color: rgba(193, 18, 31, 0.12);
+tr.atencao {
+  background-color: rgba(224, 168, 0, 0.12);
+}
+
+tr.programada {
+  background-color: rgba(232, 93, 4, 0.12);
+}
+
+tr.prioritaria {
+  background-color: rgba(193, 18, 31, 0.12);
+}
+
+tr.desconhecido {
+  background-color: rgba(108, 117, 125, 0.12);
+}
+
+/* Destaque para pontos de intervenção prioritária */
+tr.destaque {
+  font-weight: bold;
+}
+
+tr.destaque td:first-child {
+  border-left: 0.3125rem solid #c1121f;
 }
